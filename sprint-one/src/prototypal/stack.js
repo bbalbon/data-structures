@@ -6,7 +6,6 @@ var Stack = function() {
 
   someInstance.storage = {};
   someInstance.top = 0;
-  someInstance.length = 0;
 
   return someInstance;
 };
@@ -15,19 +14,17 @@ var stackMethods = {
   push : function (value) {
     this.top ++;
     this.storage[this.top] = value;
-    this.length ++;
   },
   pop : function () {
-    if (this.length > 0) {
+    if (this.top > 0) {
       let result = this.storage[this.top];
       delete this.storage[this.top];
       this.top --;
-      this.length --;
       return result;
     }
   },
   size : function () {
-    return this.length;
+    return this.top;
   }
 };
 
