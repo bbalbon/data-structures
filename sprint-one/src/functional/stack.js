@@ -19,7 +19,7 @@ var Stack = function() {
       let result = storage[top];
       delete storage[top];
       top --;
-      size--;
+      size --;
       return result;
     }
   };
@@ -30,3 +30,7 @@ var Stack = function() {
 
   return someInstance;
 };
+
+let newStack = Stack();
+
+newStack.push("string");
