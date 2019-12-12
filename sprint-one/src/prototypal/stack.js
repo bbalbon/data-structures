@@ -28,4 +28,8 @@ var stackMethods = {
   }
 };
 
+let newStack = Stack();
+
+newStack.push("string");
+
 
