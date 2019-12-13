@@ -20,7 +20,36 @@ treeMethods.addChild = function(value) {
 };
 
 treeMethods.contains = function(target) {
+
+  var isTrue = false;
+
+  const recurse = (node) => {
+    if (node.value === target) {
+      isTrue = true;
+    }
+    if (node.children.length > 0) {
+      for (let i = 0; i < node.children.length; i++) {
+        recurse(node.children[i]);
+      }
+    }
+  };
+
+  recurse(this);
+
+  return isTrue;
 };
+
+/*
+const recurse = (node) => {
+  if (node.value === target) {
+    return true;
+  } else {
+    for (let i = 0; i < )
+  }
+}
+return recurse(this)
+
+*/
 
 
 
