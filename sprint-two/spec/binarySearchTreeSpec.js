@@ -18,6 +18,7 @@ describe('binarySearchTree', function() {
     binarySearchTree.insert(6);
     expect(binarySearchTree.left.right.value).to.equal(3);
     expect(binarySearchTree.right.left.value).to.equal(6);
+
   });
 
   it('should have a working "contains" method', function() {
@@ -37,4 +38,15 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+
+  it('should be able to use all methods to accept negative and decimal values', function() {
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(0);
+    binarySearchTree.insert(-10);
+    binarySearchTree.insert(2.5);
+    expect(binarySearchTree.left.left.left.value).to.equal(-10);
+    expect(binarySearchTree.left.right.left.value).to.equal(2.5);
+
+  })
 });
