@@ -21,14 +21,29 @@ var LinkedList = function() {
   };
 
   list.removeHead = function() {
-    //result variable to store current head
+    //if result.next is null
+      //delete
+      //head = null
+      //tail = null
+      //return result.value
+    //if head is null
+      //return null;
+
+      //result variable to store current head
     var result = list.head;
-    //delete current head
-    delete list[result.value];
-    //assign new head
-    list.head = result.next;
-    //return result with stored old head
-    return result.value;
+
+    if (!result) {
+      return null;
+    } else if (result.next === null) {
+      delete list[result.value];
+      list.head = null;
+      list.tail = null;
+      return result.value;
+    } else {
+      delete list[result.value];
+      list.head = result.next;
+      return result.value;
+    }
   };
 
   list.contains = function(target) {
