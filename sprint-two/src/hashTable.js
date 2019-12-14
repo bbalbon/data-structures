@@ -60,11 +60,11 @@ HashTable.prototype.remove = function(k) {
 /*
  * Complexity: What is the time complexity of the above functions?
 
- insert -
+ insert - Constant time
 
- retrieve
+ retrieve - Constant time
 
- remove
+ remove - Constant time
 
  */
 
