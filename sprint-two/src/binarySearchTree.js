@@ -48,16 +48,33 @@ BinarySearchTree.prototype.contains = function (k) {
       recurse(parent.left);
     }
   };
-  recurse(this)
+  recurse(this);
 
   return isTrue;
 };
 //.depthFirstLog method, which accepts a callback and executes it on every value contained in the tree.
 BinarySearchTree.prototype.depthFirstLog = function (callback) {
+  //recurse function
+  const recurse = (parent) => {
+    callback(parent.value);
+    if (parent.left) {
+      recurse(parent.left);
+    }
+    if (parent.right) {
+      recurse(parent.right);
+    }
+  };
+  recurse(this);
 
 };
 
 
 /*
  * Complexity: What is the time complexity of the above functions?
+  insert - Logarithmic
+
+  contains - Logarithmic
+
+  depthFirstLog - Linear
+
  */
