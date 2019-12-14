@@ -47,6 +47,15 @@ describe('hashTable', function() {
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
 
+  it('should handle values with special characters other than letters and empty strings', function() {
+    var house = 'House 1.9!';
+    var noHouse = '';
+    hashTable.insert('House 1.9!', 'Apt #?~=-+');
+    hashTable.insert('', '');
+    expect(hashTable.retrieve(house)).to.equal('Apt #?~=-+');
+    expect(hashTable.retrieve(noHouse)).to.equal('');
+  });
+
   // (Advanced! Remove the extra "x" when you want the following tests to run)
   xit ('should double in size when needed', function() {
     _.each(people, function(person) {
