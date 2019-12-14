@@ -68,4 +68,18 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+
+  it('should handle string inputs and work with all methods', function () {
+    graph.addNode('hello');
+    graph.addNode('goodbye');
+    graph.addNode('poo');
+    graph.addNode('nut');
+    graph.addEdge('hello', 'goodbye');
+    graph.addEdge('nut', 'hello');
+    graph.addEdge('poo', 'goodbye');
+    graph.removeNode('poo');
+    expect(graph.hasEdge('hello', 'goodbye')).to.equal(true);
+    expect(graph.hasEdge('goodbye', 'poo')).to.equal(false);
+    expect(graph.contains('poo')).to.equal(false);
+  });
 });
