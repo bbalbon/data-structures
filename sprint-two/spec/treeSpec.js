@@ -41,4 +41,11 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
+  it('should correctly handle strings and negative numbers as values', function () {
+    tree.addChild(-3);
+    tree.children[0].addChild('hello');
+    tree.children[0].children[0].addChild(123123);
+    expect(tree.contains(123123)).to.equal(true);
+  });
+
 });
