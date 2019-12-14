@@ -10,14 +10,13 @@ var LinkedList = function() {
     if (!list.tail && !list.head) {
       list.head = toAdd;
       list.tail = toAdd;
+    } else {
+      // add node to list
+      // set current tail node.next to point to new node we're adding
+      list.tail.next = toAdd;
+      // set new tail to be value added
+      list.tail = toAdd;
     }
-
-    // add node to list
-    list[value] = toAdd;
-    // set current tail node.next to point to new node we're adding
-    list.tail.next = toAdd;
-    // set new tail to be value added
-    list.tail = toAdd;
   };
 
   list.removeHead = function() {
