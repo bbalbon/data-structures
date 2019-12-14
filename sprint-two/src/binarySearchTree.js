@@ -42,12 +42,14 @@ BinarySearchTree.prototype.contains = function (k) {
   const recurse = (parent) => {
     if (parent.value === k) {
       isTrue = true;
-    } else if (parent.right && parent.right.value < k) {
+    } else if (parent.right && parent.right.value <= k) {
       recurse(parent.right);
-    } else if (parent.left && parent.left.value > k) {
+    } else if (parent.left && parent.left.value >= k) {
       recurse(parent.left);
     }
   };
+  recurse(this)
+
   return isTrue;
 };
 //.depthFirstLog method, which accepts a callback and executes it on every value contained in the tree.
